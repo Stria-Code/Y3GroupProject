@@ -79,24 +79,18 @@ void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* Player
 	}
 }
 
+void AGroupProjectY3Character::BeginPlay()
+{
+	Super::BeginPlay();
+
+	LastLocation = GetActorLocation();
+}
+
 void AGroupProjectY3Character::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 	UE_LOG(LogTemp, Warning, TEXT("TICK IS RUNNING"));
-
-
-	/*FVector CurrentPosition = GetActorLocation();
-
-	if (PresentCamera)
-	{
-		PresentCamera->AddActorWorldOffset(CurrentPosition);
-	}
-
-	if (PastCamera)
-	{
-		PastCamera->AddActorWorldOffset(CurrentPosition);
-	}*/
 
 
 	if (isInPast && WatchController && WatchController->Timer)
@@ -159,6 +153,21 @@ void AGroupProjectY3Character::DoMove(float Right, float Forward)
 		// pass the move inputs
 		AddMovementInput(GetActorRightVector(), Right);
 		AddMovementInput(GetActorForwardVector(), Forward);
+
+		FVector CurrentPosition = GetActorLocation();
+		FVector Movement = CurrentPosition - LastLocation;
+
+		if (PresentCamera)
+		{
+			PresentCamera->AddActorLocalOffset(Movement);
+		}
+
+		if (PastCamera)
+		{
+			PastCamera->AddActorLocalOffset(Movement);
+		}
+
+		LastLocation = CurrentPosition;
 	}
 }
 

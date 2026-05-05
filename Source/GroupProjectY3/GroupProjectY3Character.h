@@ -64,8 +64,11 @@ protected:
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Timer")
 	AWatchController* WatchController;
 
+	virtual void BeginPlay() override;
+
 	bool isInPresent;
 	bool isInPast;
+	FVector LastLocation;
 
 public:
 	AGroupProjectY3Character();
