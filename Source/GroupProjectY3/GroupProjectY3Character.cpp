@@ -85,6 +85,20 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("TICK IS RUNNING"));
 
+
+	/*FVector CurrentPosition = GetActorLocation();
+
+	if (PresentCamera)
+	{
+		PresentCamera->AddActorWorldOffset(CurrentPosition);
+	}
+
+	if (PastCamera)
+	{
+		PastCamera->AddActorWorldOffset(CurrentPosition);
+	}*/
+
+
 	if (isInPast && WatchController && WatchController->Timer)
 	{
 		if (WatchController->Timer->isTimerFinished)
@@ -114,6 +128,7 @@ void AGroupProjectY3Character::MoveInput(const FInputActionValue& Value)
 
 	// pass the axis values to the move input
 	DoMove(MovementVector.X, MovementVector.Y);
+
 
 }
 
