@@ -61,14 +61,21 @@ protected:
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Camera")
 	ACameraActor* PastCamera;
 
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* PastCameraComponent;
+
+
+
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Timer")
 	AWatchController* WatchController;
 
 	virtual void BeginPlay() override;
 
+	FVector PresentPosition;
+	FVector PastPosition;
+
 	bool isInPresent;
 	bool isInPast;
-	FVector LastLocation;
 
 public:
 	AGroupProjectY3Character();

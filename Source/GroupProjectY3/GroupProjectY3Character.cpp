@@ -22,7 +22,7 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 
 	// Create the first person mesh that will be viewed only by this character's owner
 	FirstPersonMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("First Person Mesh"));
-
+	FVector Offset = PastCameraComponent->GetRelativeLocation();
 	FirstPersonMesh->SetupAttachment(GetMesh());
 	FirstPersonMesh->SetOnlyOwnerSee(true);
 	FirstPersonMesh->FirstPersonPrimitiveType = EFirstPersonPrimitiveType::FirstPerson;
@@ -37,6 +37,12 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	FirstPersonCameraComponent->bEnableFirstPersonScale = true;
 	FirstPersonCameraComponent->FirstPersonFieldOfView = 70.0f;
 	FirstPersonCameraComponent->FirstPersonScale = 0.6f;
+
+	// Create Past Camera Component
+	PastCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
+	PastCameraComponent->SetupAttachment(RootComponent);
+	PastCameraComponent->SetRelativeLocation(FVector(0.f, 0.f, 3150.f));
+	PastCameraComponent->SetRelativeRotation(FRotator(-10.f, 0.f, 0.f));
 
 
 	// configure the character comps
@@ -83,7 +89,11 @@ void AGroupProjectY3Character::BeginPlay()
 {
 	Super::BeginPlay();
 
-	LastLocation = GetActorLocation();
+	FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
+	PresentPosition = PresentTargetLocation;
+
+	FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
+	PastPosition = PastTargetLocation;
 }
 
 void AGroupProjectY3Character::Tick(float DeltaTime)
@@ -97,7 +107,17 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 	{
 		if (WatchController->Timer->isTimerFinished)
 		{
-			FVector newPosition;
+			//FVector TargetLocation = PastCameraComponent->GetComponentLocation();
+
+			UE_LOG(LogTemp, Warning, TEXT("Getting Teleported Back"));
+			SetActorLocation(PresentPosition);
+
+
+			isInPresent = true;
+			isInPast = false;
+
+
+			/*FVector newPosition;
 
 			if (PresentCamera)
 			{
@@ -109,7 +129,7 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 			SetActorLocation(newPosition);
 
 			isInPresent = true;
-			isInPast = false;
+			isInPast = false;*/
 		}
 	}
 }
@@ -153,21 +173,6 @@ void AGroupProjectY3Character::DoMove(float Right, float Forward)
 		// pass the move inputs
 		AddMovementInput(GetActorRightVector(), Right);
 		AddMovementInput(GetActorForwardVector(), Forward);
-
-		FVector CurrentPosition = GetActorLocation();
-		FVector Movement = CurrentPosition - LastLocation;
-
-		if (PresentCamera)
-		{
-			PresentCamera->AddActorLocalOffset(Movement);
-		}
-
-		if (PastCamera)
-		{
-			PastCamera->AddActorLocalOffset(Movement);
-		}
-
-		LastLocation = CurrentPosition;
 	}
 }
 
@@ -185,13 +190,37 @@ void AGroupProjectY3Character::DoJumpEnd()
 
 void AGroupProjectY3Character::ChangeTimeline()
 {
-	FVector initialPosition = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
+	FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
+	PresentPosition = PresentTargetLocation;
 
-    FVector newPosition;
+	//FVector initialPosition = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
+
+    //FVector newPosition;
 
 	if (isInPresent)
 	{
-		if (PastCamera)
+
+		//FVector TargetLocation = PastCameraComponent->GetComponentLocation();
+
+		SetActorLocation(PresentPosition);
+
+		isInPresent = false;
+		isInPast = true;
+	}
+	/*else
+	{
+		FVector TargetLocation = FirstPersonCameraComponent->GetComponentLocation();
+
+		SetActorLocation(TargetLocation);
+
+		isInPresent = true;
+		isInPast = false;
+	}*/
+
+
+
+
+		/*if (PastCamera)
 		{
 			FVector cameraPosition = PastCamera->GetActorLocation();
 			newPosition = cameraPosition;
@@ -208,7 +237,7 @@ void AGroupProjectY3Character::ChangeTimeline()
 			WatchController->Timer->StartTimer();
 		}
 	}
-	/*else if (isInPast)
+	else if (isInPast)
 	{
 		if (PresentCamera)
 		{
