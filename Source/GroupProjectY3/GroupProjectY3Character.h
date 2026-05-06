@@ -54,13 +54,6 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* changeTimeAction;
 
-
-	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Camera")
-    ACameraActor* PresentCamera;
-
-	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Camera")
-	ACameraActor* PastCamera;
-
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* PastCameraComponent;
 
