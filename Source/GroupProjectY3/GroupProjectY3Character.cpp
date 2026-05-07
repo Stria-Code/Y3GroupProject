@@ -22,11 +22,12 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 
 	// Create the first person mesh that will be viewed only by this character's owner
 	FirstPersonMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("First Person Mesh"));
-	FVector Offset = PastCameraComponent->GetRelativeLocation();
 	FirstPersonMesh->SetupAttachment(GetMesh());
 	FirstPersonMesh->SetOnlyOwnerSee(true);
 	FirstPersonMesh->FirstPersonPrimitiveType = EFirstPersonPrimitiveType::FirstPerson;
 	FirstPersonMesh->SetCollisionProfileName(FName("NoCollision"));
+
+	
 
 	// Create the Camera Component	
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("First Person Camera"));
@@ -39,10 +40,15 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	FirstPersonCameraComponent->FirstPersonScale = 0.6f;
 
 	// Create Past Camera Component
-	PastCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
-	PastCameraComponent->SetupAttachment(RootComponent);
-	PastCameraComponent->SetRelativeLocation(FVector(0.f, 0.f, 3150.f));
-	PastCameraComponent->SetRelativeRotation(FRotator(-10.f, 0.f, 0.f));
+	PastCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Past Camera"));
+	PastCameraComponent->SetupAttachment(FirstPersonMesh, FName("head"));
+	PastCameraComponent->SetRelativeLocation(FVector(3000.f, 0.f, 0.f));
+	PastCameraComponent->SetRelativeRotation(FRotator(0.0f, 90.0f, -90.0f));
+	PastCameraComponent->bUsePawnControlRotation = true;
+	PastCameraComponent->bEnableFirstPersonFieldOfView = true;
+	PastCameraComponent->bEnableFirstPersonScale = true;
+	PastCameraComponent->FirstPersonFieldOfView = 70.0f;
+	PastCameraComponent->FirstPersonScale = 0.6f;
 
 
 	// configure the character comps
@@ -92,8 +98,15 @@ void AGroupProjectY3Character::BeginPlay()
 	FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
 	PresentPosition = PresentTargetLocation;
 
-	FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
-	PastPosition = PastTargetLocation;
+	if (PastCameraComponent)
+	{
+		FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
+		PastPosition = PastTargetLocation;
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("cAMERA NOT SET"));
+	}
 }
 
 void AGroupProjectY3Character::Tick(float DeltaTime)
@@ -102,16 +115,18 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("TICK IS RUNNING"));
 
-
 	if (isInPast && WatchController && WatchController->Timer)
 	{
+		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Time: " + WatchController->Timer->GetTimeRemaining()));
+
 		if (WatchController->Timer->isTimerFinished)
 		{
-			//FVector TargetLocation = PastCameraComponent->GetComponentLocation();
+
+			FVector CurrentLocation = GetActorLocation();
+			CurrentLocation.Z -= 3050.f;
 
 			UE_LOG(LogTemp, Warning, TEXT("Getting Teleported Back"));
-			SetActorLocation(PresentPosition);
-
+			SetActorLocation(CurrentLocation);
 
 			isInPresent = true;
 			isInPast = false;
@@ -190,23 +205,22 @@ void AGroupProjectY3Character::DoJumpEnd()
 
 void AGroupProjectY3Character::ChangeTimeline()
 {
-	FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
-	PresentPosition = PresentTargetLocation;
-
-	//FVector initialPosition = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
-
-    //FVector newPosition;
-
 	if (isInPresent)
 	{
+		FVector CurrentLocation = GetActorLocation();
+		CurrentLocation.Z += 3050.f;
+		SetActorLocation(CurrentLocation);
 
-		//FVector TargetLocation = PastCameraComponent->GetComponentLocation();
-
-		SetActorLocation(PresentPosition);
+		WatchController->Timer->StartTimer();
 
 		isInPresent = false;
 		isInPast = true;
 	}
+
+
+
+
+
 	/*else
 	{
 		FVector TargetLocation = FirstPersonCameraComponent->GetComponentLocation();
