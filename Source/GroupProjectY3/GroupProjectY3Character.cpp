@@ -95,18 +95,18 @@ void AGroupProjectY3Character::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
-	PresentPosition = PresentTargetLocation;
+	//FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
+	//PresentPosition = PresentTargetLocation;
 
-	if (PastCameraComponent)
-	{
-		FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
-		PastPosition = PastTargetLocation;
-	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("cAMERA NOT SET"));
-	}
+	//if (PastCameraComponent)
+	//{
+	//	FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
+	//	PastPosition = PastTargetLocation;
+	//}
+	//else
+	//{
+	//	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("cAMERA NOT SET"));
+	//}
 }
 
 void AGroupProjectY3Character::Tick(float DeltaTime)
