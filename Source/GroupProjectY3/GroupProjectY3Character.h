@@ -54,6 +54,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* changeTimeAction;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* InteractAction;
+
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* PastCameraComponent;
 
@@ -69,6 +72,9 @@ protected:
 
 	bool isInPresent;
 	bool isInPast;
+	bool hasKey;
+
+	int keyLevel;
 
 public:
 	AGroupProjectY3Character();
@@ -101,6 +107,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	virtual void ChangeTimeline();
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void DoInteract();
 
 protected:
 
