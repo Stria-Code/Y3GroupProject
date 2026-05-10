@@ -84,6 +84,8 @@ void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* Player
 		EnhancedInputComponent->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::LookInput);
 
 		EnhancedInputComponent->BindAction(changeTimeAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::ChangeTimeline);
+
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::DoInteract);
 	}
 	else
 	{
@@ -95,18 +97,18 @@ void AGroupProjectY3Character::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
-	PresentPosition = PresentTargetLocation;
+	//FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
+	//PresentPosition = PresentTargetLocation;
 
-	if (PastCameraComponent)
-	{
-		FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
-		PastPosition = PastTargetLocation;
-	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("cAMERA NOT SET"));
-	}
+	//if (PastCameraComponent)
+	//{
+	//	FVector PastTargetLocation = PastCameraComponent->GetComponentLocation();
+	//	PastPosition = PastTargetLocation;
+	//}
+	//else
+	//{
+	//	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("cAMERA NOT SET"));
+	//}
 }
 
 void AGroupProjectY3Character::Tick(float DeltaTime)
@@ -265,5 +267,37 @@ void AGroupProjectY3Character::ChangeTimeline()
 		isInPresent = true;
 		isInPast = false;
 	}*/
+}
+
+void AGroupProjectY3Character::DoInteract()
+{
+	FVector Start;
+	FRotator Rotation;
+
+	Controller->GetPlayerViewPoint(Start, Rotation);
+
+	FVector End = Start + (Rotation.Vector() * 500.0f);
+
+	FHitResult Hit;
+
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
+
+	if (bHit)
+	{
+		AActor* HitActor = Hit.GetActor();
+
+		if (!HitActor)
+		{
+			return;
+		}
+
+		if (HitActor->ActorHasTag("Destroy"))
+		{
+			HitActor->Destroy();
+		}
+	}
 }
 
