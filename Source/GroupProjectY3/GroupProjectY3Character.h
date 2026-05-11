@@ -5,6 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "Engine/SceneCapture2D.h"
+#include "Components/SceneCaptureComponent2D.h"
+#include "Blueprint/UserWidget.h"
+#include "Engine/TextureRenderTarget2D.h"
+
 #include "GroupProjectY3Character.generated.h"
 
 class UInputComponent;
@@ -33,6 +38,14 @@ class AGroupProjectY3Character : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 
+	// Widget Instance
+	UPROPERTY()
+	UUserWidget* ChronovertWidget;
+
+	UPROPERTY()
+	USceneCaptureComponent2D* ChronovertSceneCaptureComponent;
+
+
 protected:
 
 	/** Jump Input Action */
@@ -57,6 +70,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* InteractAction;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* ChronovertAction;
+
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* PastCameraComponent;
 
@@ -64,6 +80,17 @@ protected:
 
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Timer")
 	AWatchController* WatchController;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ASceneCapture2D* ChronovertSceneCapture;
+
+	// Render Target
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTextureRenderTarget2D* ChronovertRenderTarget;
+
+	// Widget Class
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> ChronovertWidgetClass;
 
 	virtual void BeginPlay() override;
 
@@ -75,6 +102,8 @@ protected:
 	bool hasKey;
 
 	int keyLevel;
+
+	bool isChronovertActive;
 
 public:
 	AGroupProjectY3Character();
@@ -110,6 +139,12 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	virtual void DoInteract();
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void OpenChronovert();
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void CloseChronovert();
 
 protected:
 
