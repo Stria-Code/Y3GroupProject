@@ -62,7 +62,7 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	GetCharacterMovement()->AirControl = 0.5f;
 
 
-
+	isChronovertActive = true;
 	isInPresent = true;
 	isInPast = false;
 }
@@ -86,6 +86,10 @@ void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* Player
 		EnhancedInputComponent->BindAction(changeTimeAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::ChangeTimeline);
 
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::DoInteract);
+
+		EnhancedInputComponent->BindAction(ChronovertAction, ETriggerEvent::Started, this, &AGroupProjectY3Character::OpenChronovert);
+		EnhancedInputComponent->BindAction(ChronovertAction, ETriggerEvent::Completed, this, &AGroupProjectY3Character::CloseChronovert);
+
 	}
 	else
 	{
@@ -97,6 +101,12 @@ void AGroupProjectY3Character::BeginPlay()
 {
 	Super::BeginPlay();
 
+	if (ChronovertSceneCapture)
+	{
+		ChronovertSceneCaptureComponent = ChronovertSceneCapture->GetCaptureComponent2D();
+
+		ChronovertSceneCaptureComponent->bCaptureEveryFrame = false;
+	}
 	//FVector PresentTargetLocation = FirstPersonCameraComponent->GetComponentLocation();
 	//PresentPosition = PresentTargetLocation;
 
@@ -117,36 +127,48 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("TICK IS RUNNING"));
 
-	if (isInPast && WatchController && WatchController->Timer)
+	if (isInPresent)
 	{
-		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Time: " + WatchController->Timer->GetTimeRemaining()));
-
-		if (WatchController->Timer->isTimerFinished)
+		if (isChronovertActive)
 		{
+			FVector CapturerLocation = GetActorLocation() + FVector(0.0f, 0.0f, 3050.0f);
 
-			FVector CurrentLocation = GetActorLocation();
-			CurrentLocation.Z -= 3050.f;
+			FRotator CapturerRotation = FRotator(-90.0f, GetActorRotation().Yaw, 0.0f);
 
-			UE_LOG(LogTemp, Warning, TEXT("Getting Teleported Back"));
-			SetActorLocation(CurrentLocation);
+			ChronovertSceneCapture->SetActorLocation(CapturerLocation);
+			ChronovertSceneCapture->SetActorRotation(CapturerRotation);
+		}
+	}
 
-			isInPresent = true;
-			isInPast = false;
+	if (isInPast)
+	{
+		if (isChronovertActive)
+		{
+			FVector CapturerLocation = GetActorLocation() - FVector(0.0f, 0.0f, 3050.0f);
 
+			FRotator CapturerRotation = FRotator(-90.0f, GetActorRotation().Yaw, 0.0f);
 
-			/*FVector newPosition;
+			ChronovertSceneCapture->SetActorLocation(CapturerLocation);
+			ChronovertSceneCapture->SetActorRotation(CapturerRotation);
+		}
 
-			if (PresentCamera)
+		if (WatchController && WatchController->Timer)
+		{
+			//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Time: " + WatchController->Timer->GetTimeRemaining()));
+
+			if (WatchController->Timer->isTimerFinished)
 			{
-				FVector cameraPosition = PresentCamera->GetActorLocation();
-				newPosition = cameraPosition;
+
+				FVector CurrentLocation = GetActorLocation();
+				CurrentLocation.Z -= 3050.f;
+
+				UE_LOG(LogTemp, Warning, TEXT("Getting Teleported Back"));
+				SetActorLocation(CurrentLocation);
+
+				isInPresent = true;
+				isInPast = false;
+
 			}
-
-			UE_LOG(LogTemp, Warning, TEXT("Getting Teleported Back"));
-			SetActorLocation(newPosition);
-
-			isInPresent = true;
-			isInPast = false;*/
 		}
 	}
 }
@@ -218,55 +240,6 @@ void AGroupProjectY3Character::ChangeTimeline()
 		isInPresent = false;
 		isInPast = true;
 	}
-
-
-
-
-
-	/*else
-	{
-		FVector TargetLocation = FirstPersonCameraComponent->GetComponentLocation();
-
-		SetActorLocation(TargetLocation);
-
-		isInPresent = true;
-		isInPast = false;
-	}*/
-
-
-
-
-		/*if (PastCamera)
-		{
-			FVector cameraPosition = PastCamera->GetActorLocation();
-			newPosition = cameraPosition;
-		}
-
-		GetWorld()->GetFirstPlayerController()->GetPawn()->SetActorLocation(newPosition);
-
-		isInPresent = false;
-		isInPast = true;
-
-		if (isInPast && WatchController && WatchController->Timer)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Starting Timer"));
-			WatchController->Timer->StartTimer();
-		}
-	}
-	else if (isInPast)
-	{
-		if (PresentCamera)
-		{
-			FVector cameraPosition = PresentCamera->GetActorLocation();
-			newPosition = cameraPosition;
-		}
-
-
-
-		GetWorld()->GetFirstPlayerController()->GetPawn()->SetActorLocation(newPosition);
-		isInPresent = true;
-		isInPast = false;
-	}*/
 }
 
 void AGroupProjectY3Character::DoInteract()
@@ -300,4 +273,25 @@ void AGroupProjectY3Character::DoInteract()
 		}
 	}
 }
+
+void AGroupProjectY3Character::OpenChronovert()
+{
+	isChronovertActive = true;
+
+	if (ChronovertSceneCaptureComponent)
+	{
+		ChronovertSceneCaptureComponent->bCaptureEveryFrame = true;
+	}
+}
+
+void AGroupProjectY3Character::CloseChronovert()
+{
+	isChronovertActive = false;
+
+	if (ChronovertSceneCaptureComponent)
+	{
+		ChronovertSceneCaptureComponent->bCaptureEveryFrame = false;
+	}
+}
+
 
