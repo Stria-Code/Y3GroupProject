@@ -133,7 +133,7 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 		{
 			FVector CapturerLocation = GetActorLocation() + FVector(0.0f, 0.0f, 3050.0f);
 
-			FRotator CapturerRotation = FRotator(-90.0f, GetActorRotation().Yaw, 0.0f);
+			FRotator CapturerRotation = GetActorRotation();
 
 			ChronovertSceneCapture->SetActorLocation(CapturerLocation);
 			ChronovertSceneCapture->SetActorRotation(CapturerRotation);
@@ -146,7 +146,7 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 		{
 			FVector CapturerLocation = GetActorLocation() - FVector(0.0f, 0.0f, 3050.0f);
 
-			FRotator CapturerRotation = FRotator(-90.0f, GetActorRotation().Yaw, 0.0f);
+			FRotator CapturerRotation = GetActorRotation();
 
 			ChronovertSceneCapture->SetActorLocation(CapturerLocation);
 			ChronovertSceneCapture->SetActorRotation(CapturerRotation);
