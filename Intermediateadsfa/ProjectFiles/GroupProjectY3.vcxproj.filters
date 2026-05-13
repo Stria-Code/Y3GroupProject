@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\GroupProjectY3.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GroupProjectY3.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GroupProjectY3Editor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\GroupProjectY3">
+      <UniqueIdentifier>{0DA7F55A-2908-3D87-A4E7-B245FEED32CB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\DoorScript.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\DoorScript.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\GroupProjectY3\GroupProjectY3.Build.cs">
+      <Filter>Source\GroupProjectY3</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\GroupProjectY3\GroupProjectY3.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\GroupProjectY3.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\GroupProjectY3CameraManager.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\GroupProjectY3CameraManager.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\GroupProjectY3Character.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\GroupProjectY3Character.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\GroupProjectY3GameMode.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\GroupProjectY3GameMode.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\GroupProjectY3PlayerController.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\GroupProjectY3PlayerController.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\TimerComponent.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\TimerComponent.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\WatchController.cpp">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\WatchController.h">
+      <Filter>Source\GroupProjectY3</Filter>
+    </ClInclude>
+    <Filter Include="Source\GroupProjectY3\Variant_Horror">
+      <UniqueIdentifier>{000F8866-0392-3286-B16D-A12ADE6F474D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Horror\HorrorCharacter.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Horror</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Horror\HorrorCharacter.h">
+      <Filter>Source\GroupProjectY3\Variant_Horror</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Horror\HorrorGameMode.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Horror</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Horror\HorrorGameMode.h">
+      <Filter>Source\GroupProjectY3\Variant_Horror</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Horror\HorrorPlayerController.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Horror</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Horror\HorrorPlayerController.h">
+      <Filter>Source\GroupProjectY3\Variant_Horror</Filter>
+    </ClInclude>
+    <Filter Include="Source\GroupProjectY3\Variant_Horror\UI">
+      <UniqueIdentifier>{1375D24C-AA80-3878-B9B7-4F7F18D53D73}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Horror\UI\HorrorUI.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Horror\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Horror\UI\HorrorUI.h">
+      <Filter>Source\GroupProjectY3\Variant_Horror\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\GroupProjectY3\Variant_Shooter">
+      <UniqueIdentifier>{DFDD2299-F849-3530-A5B8-569E2A1A6FFE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\ShooterCharacter.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\ShooterCharacter.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\ShooterGameMode.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\ShooterGameMode.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\ShooterPlayerController.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\ShooterPlayerController.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter</Filter>
+    </ClInclude>
+    <Filter Include="Source\GroupProjectY3\Variant_Shooter\AI">
+      <UniqueIdentifier>{12CCB344-3D2D-39C8-A5D7-4C9E9D340A82}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\EnvQueryContext_Target.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\EnvQueryContext_Target.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\ShooterAIController.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\ShooterAIController.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\ShooterNPC.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\ShooterNPC.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\ShooterStateTreeUtility.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\AI\ShooterStateTreeUtility.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\GroupProjectY3\Variant_Shooter\UI">
+      <UniqueIdentifier>{FAA62A40-E25D-3D07-B2CA-B456A1690C23}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\UI\ShooterBulletCounterUI.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\UI\ShooterBulletCounterUI.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\UI\ShooterUI.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\UI\ShooterUI.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\GroupProjectY3\Variant_Shooter\Weapons">
+      <UniqueIdentifier>{39003D42-57AE-34AA-8068-0892C302AAD4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterPickup.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterPickup.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterProjectile.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterProjectile.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterWeapon.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterWeapon.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterWeaponHolder.cpp">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GroupProjectY3\Variant_Shooter\Weapons\ShooterWeaponHolder.h">
+      <Filter>Source\GroupProjectY3\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
