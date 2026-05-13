@@ -92,7 +92,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> ChronovertWidgetClass;
 
-	UPROPERTY(EditAnywhere, BluepritnReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UDoorScript* Door;
 
 	virtual void BeginPlay() override;

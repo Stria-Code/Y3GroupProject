@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-GroupProjectY3-8076.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:/GitProjects/Y3GroupProject/Intermediate/Build/Win64/x64/GroupProjectY3Editor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"D:/GitProjects/Y3GroupProject/Intermediate/Build/Win64/x64/UnrealEditor/Development/GroupProjectY3/Module.GroupProjectY3.cpp.obj"
+"D:/GitProjects/Y3GroupProject/Intermediate/Build/Win64/x64/UnrealEditor/Development/GroupProjectY3/GroupProjectY3Character.cpp.obj"
+"D:/GitProjects/Y3GroupProject/Intermediate/Build/Win64/x64/UnrealEditor/Development/GroupProjectY3/Default.rc2.res"
+/OUT:"D:/GitProjects/Y3GroupProject/Intermediate/Build/Win64/x64/UnrealEditor/Development/GroupProjectY3/UnrealEditor-GroupProjectY3-8076.lib"

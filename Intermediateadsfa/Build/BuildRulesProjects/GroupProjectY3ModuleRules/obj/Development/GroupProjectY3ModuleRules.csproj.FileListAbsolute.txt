@@ -1,0 +1,88 @@
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\liboo2corelinux64.so.9
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\liboo2corelinuxarm32.so.9
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\liboo2corelinuxarm64.so.9
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\oo2core_9_win64.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\oo2core_9_win32.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\oo2core_9_winuwparm64.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\runtimes\win-x64\native\UbaHost.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\runtimes\win-x64\native\UbaDetours.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\GroupProjectY3ModuleRules.deps.json
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\GroupProjectY3ModuleRules.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\ref\GroupProjectY3ModuleRules.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\GroupProjectY3ModuleRules.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Core.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Horde.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.IoHash.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.MsBuild.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.OIDC.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Oodle.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Serialization.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UBA.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UHT.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Core.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Horde.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Horde.xml
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.IoHash.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.MsBuild.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.OIDC.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Oodle.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Oodle.xml
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Serialization.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UBA.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UBA.xml
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UHT.pdb
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UHT.xml
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.csproj.AssemblyReference.cache
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.AssemblyInfoInputs.cache
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.AssemblyInfo.cs
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.csproj.CoreCompileInputs.cache
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.sourcelink.json
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupPro.D1308C98.Up2Date
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\refint\GroupProjectY3ModuleRules.dll
+D:\GitProjects\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\liboo2corelinux64.so.9
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\liboo2corelinuxarm32.so.9
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\liboo2corelinuxarm64.so.9
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\oo2core_9_win64.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\oo2core_9_win32.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\oo2core_9_winuwparm64.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\runtimes\win-x64\native\UbaHost.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\runtimes\win-x64\native\UbaDetours.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\GroupProjectY3ModuleRules.deps.json
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\GroupProjectY3ModuleRules.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\ref\GroupProjectY3ModuleRules.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\GroupProjectY3ModuleRules.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Core.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Horde.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.IoHash.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.MsBuild.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.OIDC.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Oodle.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Serialization.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UBA.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UHT.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Core.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Horde.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Horde.xml
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.IoHash.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.MsBuild.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.OIDC.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Oodle.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Oodle.xml
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.Serialization.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UBA.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UBA.xml
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UHT.pdb
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\bin\Development\EpicGames.UHT.xml
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.csproj.AssemblyReference.cache
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.AssemblyInfoInputs.cache
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.AssemblyInfo.cs
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.csproj.CoreCompileInputs.cache
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.sourcelink.json
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupPro.D1308C98.Up2Date
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\refint\GroupProjectY3ModuleRules.dll
+C:\Users\mm14crt\Documents\github repository\Y3GroupProject\Intermediate\Build\BuildRulesProjects\GroupProjectY3ModuleRules\obj\Development\GroupProjectY3ModuleRules.pdb
