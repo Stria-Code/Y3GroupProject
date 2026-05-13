@@ -92,6 +92,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> ChronovertWidgetClass;
 
+	UPROPERTY(EditAnywhere, BluepritnReadWrite)
+	class UDoorScript* Door;
+
 	virtual void BeginPlay() override;
 
 	FVector PresentPosition;
@@ -101,6 +104,7 @@ protected:
 	bool isInPast;
 	bool hasKey;
 
+	UPROPERTY(BlueprintReadOnly)
 	int keyLevel;
 
 	bool isChronovertActive;

@@ -65,6 +65,8 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	isChronovertActive = true;
 	isInPresent = true;
 	isInPast = false;
+
+	keyLevel = 0;
 }
 
 void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -270,6 +272,16 @@ void AGroupProjectY3Character::DoInteract()
 		if (HitActor->ActorHasTag("Destroy"))
 		{
 			HitActor->Destroy();
+		}
+
+		if (HitActor->ActorHasTag("LABDOOR_PRESENT") && keyLevel == 1)
+		{
+			//open door i guess
+		}
+
+		if (HitActor->ActorHasTag("LABDOOR_PAST"))
+		{
+			keyLevel = 1;
 		}
 	}
 }
