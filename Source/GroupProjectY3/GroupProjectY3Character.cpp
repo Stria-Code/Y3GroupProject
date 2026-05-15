@@ -12,6 +12,7 @@
 #include "GroupProjectY3.h"
 #include "WatchController.h"
 #include "TimerComponent.h"
+#include "InteractableInterface.h"
 
 AGroupProjectY3Character::AGroupProjectY3Character()
 {
@@ -267,6 +268,11 @@ void AGroupProjectY3Character::DoInteract()
 		if (!HitActor)
 		{
 			return;
+		}
+
+		if (HitActor->Implements<UInteractableInterface>())
+		{
+			IInteractableInterface::Execute_Interact(HitActor, this);
 		}
 
 		if (HitActor->ActorHasTag("Destroy"))
