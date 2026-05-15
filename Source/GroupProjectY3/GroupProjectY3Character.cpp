@@ -88,7 +88,7 @@ void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* Player
 
 		EnhancedInputComponent->BindAction(changeTimeAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::ChangeTimeline);
 
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::DoInteract);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &AGroupProjectY3Character::DoInteract);
 
 		EnhancedInputComponent->BindAction(ChronovertAction, ETriggerEvent::Started, this, &AGroupProjectY3Character::OpenChronovert);
 		EnhancedInputComponent->BindAction(ChronovertAction, ETriggerEvent::Completed, this, &AGroupProjectY3Character::CloseChronovert);

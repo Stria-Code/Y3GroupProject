@@ -26,4 +26,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void Interact(AActor* InteractingActor);
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void LookTargetEvent(bool isLooking);
+
 };
