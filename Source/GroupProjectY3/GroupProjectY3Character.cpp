@@ -130,6 +130,8 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("TICK IS RUNNING"));
 
+	LookAtTarget();
+
 	if (isInPresent)
 	{
 		if (isChronovertActive)
@@ -176,6 +178,43 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 	}
 }
 
+
+void AGroupProjectY3Character::LookAtTarget()
+{
+	FVector Start;
+	FRotator Rotation;
+
+	Controller->GetPlayerViewPoint(Start, Rotation);
+
+	FVector End = Start + (Rotation.Vector() * 500.0f);
+
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);
+
+	isHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
+
+	AActor* NewLookActor = nullptr;
+
+	if (isHit)
+	{
+		NewLookActor = Hit.GetActor();
+	}
+
+	if (NewLookActor != CurrentLookActor)
+	{
+		if (CurrentLookActor && CurrentLookActor->Implements<UInteractableInterface>())
+		{
+			IInteractableInterface::Execute_LookTargetEvent(CurrentLookActor, false);
+		}
+
+		CurrentLookActor = NewLookActor;
+
+		if (CurrentLookActor && CurrentLookActor->Implements<UInteractableInterface>())
+		{
+			IInteractableInterface::Execute_LookTargetEvent(CurrentLookActor, true);
+		}
+	}
+}
 
 void AGroupProjectY3Character::MoveInput(const FInputActionValue& Value)
 {
@@ -247,45 +286,31 @@ void AGroupProjectY3Character::ChangeTimeline()
 
 void AGroupProjectY3Character::DoInteract()
 {
-	FVector Start;
-	FRotator Rotation;
-
-	Controller->GetPlayerViewPoint(Start, Rotation);
-
-	FVector End = Start + (Rotation.Vector() * 500.0f);
-
-	FHitResult Hit;
-
-	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(this);
-
-	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
-
-	if (bHit)
+	if (isHit)
 	{
-		AActor* HitActor = Hit.GetActor();
+		AActor* Actor = Hit.GetActor();
 
-		if (!HitActor)
+		if (!isHit)
 		{
 			return;
 		}
 
-		if (HitActor->Implements<UInteractableInterface>())
+		if (Actor->Implements<UInteractableInterface>())
 		{
-			IInteractableInterface::Execute_Interact(HitActor, this);
+			IInteractableInterface::Execute_Interact(Actor, this);
 		}
 
-		if (HitActor->ActorHasTag("Destroy"))
+		if (Actor->ActorHasTag("Destroy"))
 		{
-			HitActor->Destroy();
+			Actor->Destroy();
 		}
 
-		if (HitActor->ActorHasTag("LABDOOR_PRESENT") && keyLevel == 1)
+		if (Actor->ActorHasTag("LABDOOR_PRESENT") && keyLevel == 1)
 		{
 			//open door i guess
 		}
 
-		if (HitActor->ActorHasTag("LABDOOR_PAST"))
+		if (Actor->ActorHasTag("LABDOOR_PAST"))
 		{
 			keyLevel = 1;
 		}
