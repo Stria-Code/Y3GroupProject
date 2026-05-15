@@ -186,7 +186,7 @@ void AGroupProjectY3Character::LookAtTarget()
 
 	Controller->GetPlayerViewPoint(Start, Rotation);
 
-	FVector End = Start + (Rotation.Vector() * 500.0f);
+	FVector End = Start + (Rotation.Vector() * 150.0f);
 
 	FCollisionQueryParams Params;
 	Params.AddIgnoredActor(this);
