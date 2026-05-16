@@ -107,7 +107,14 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	int keyLevel;
 
+	bool isHit;
+	FHitResult Hit;
+
+	AActor* CurrentLookActor;
+
 	bool isChronovertActive;
+
+	void LookAtTarget();
 
 public:
 	AGroupProjectY3Character();

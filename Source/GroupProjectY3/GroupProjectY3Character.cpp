@@ -12,6 +12,7 @@
 #include "GroupProjectY3.h"
 #include "WatchController.h"
 #include "TimerComponent.h"
+#include "InteractableInterface.h"
 
 AGroupProjectY3Character::AGroupProjectY3Character()
 {
@@ -87,7 +88,7 @@ void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* Player
 
 		EnhancedInputComponent->BindAction(changeTimeAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::ChangeTimeline);
 
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AGroupProjectY3Character::DoInteract);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &AGroupProjectY3Character::DoInteract);
 
 		EnhancedInputComponent->BindAction(ChronovertAction, ETriggerEvent::Started, this, &AGroupProjectY3Character::OpenChronovert);
 		EnhancedInputComponent->BindAction(ChronovertAction, ETriggerEvent::Completed, this, &AGroupProjectY3Character::CloseChronovert);
@@ -128,6 +129,8 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	UE_LOG(LogTemp, Warning, TEXT("TICK IS RUNNING"));
+
+	LookAtTarget();
 
 	if (isInPresent)
 	{
@@ -175,6 +178,43 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 	}
 }
 
+
+void AGroupProjectY3Character::LookAtTarget()
+{
+	FVector Start;
+	FRotator Rotation;
+
+	Controller->GetPlayerViewPoint(Start, Rotation);
+
+	FVector End = Start + (Rotation.Vector() * 150.0f);
+
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);
+
+	isHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
+
+	AActor* NewLookActor = nullptr;
+
+	if (isHit)
+	{
+		NewLookActor = Hit.GetActor();
+	}
+
+	if (NewLookActor != CurrentLookActor)
+	{
+		if (CurrentLookActor && CurrentLookActor->Implements<UInteractableInterface>())
+		{
+			IInteractableInterface::Execute_LookTargetEvent(CurrentLookActor, false);
+		}
+
+		CurrentLookActor = NewLookActor;
+
+		if (CurrentLookActor && CurrentLookActor->Implements<UInteractableInterface>())
+		{
+			IInteractableInterface::Execute_LookTargetEvent(CurrentLookActor, true);
+		}
+	}
+}
 
 void AGroupProjectY3Character::MoveInput(const FInputActionValue& Value)
 {
@@ -246,40 +286,31 @@ void AGroupProjectY3Character::ChangeTimeline()
 
 void AGroupProjectY3Character::DoInteract()
 {
-	FVector Start;
-	FRotator Rotation;
-
-	Controller->GetPlayerViewPoint(Start, Rotation);
-
-	FVector End = Start + (Rotation.Vector() * 500.0f);
-
-	FHitResult Hit;
-
-	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(this);
-
-	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
-
-	if (bHit)
+	if (isHit)
 	{
-		AActor* HitActor = Hit.GetActor();
+		AActor* Actor = Hit.GetActor();
 
-		if (!HitActor)
+		if (!isHit)
 		{
 			return;
 		}
 
-		if (HitActor->ActorHasTag("Destroy"))
+		if (Actor->Implements<UInteractableInterface>())
 		{
-			HitActor->Destroy();
+			IInteractableInterface::Execute_Interact(Actor, this);
 		}
 
-		if (HitActor->ActorHasTag("LABDOOR_PRESENT") && keyLevel == 1)
+		if (Actor->ActorHasTag("Destroy"))
+		{
+			Actor->Destroy();
+		}
+
+		if (Actor->ActorHasTag("LABDOOR_PRESENT") && keyLevel == 1)
 		{
 			//open door i guess
 		}
 
-		if (HitActor->ActorHasTag("LABDOOR_PAST"))
+		if (Actor->ActorHasTag("LABDOOR_PAST"))
 		{
 			keyLevel = 1;
 		}
