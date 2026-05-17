@@ -30,3 +30,8 @@ void APen::Interact_Implementation(AActor* InteractingActor)
 	UE_LOG(LogTemp, Warning, TEXT("Pen interacted with"));
 }
 
+void APen::InteractionDialogue_Implementation(AActor* InteractingActor)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Pen dialogue active"));
+}
+

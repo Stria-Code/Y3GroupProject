@@ -104,9 +104,6 @@ protected:
 	bool isInPast;
 	bool hasKey;
 
-	UPROPERTY(BlueprintReadOnly)
-	int keyLevel;
-
 	bool isHit;
 	FHitResult Hit;
 
@@ -120,6 +117,12 @@ public:
 	AGroupProjectY3Character();
 
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(BlueprintReadWrite)
+	int keyLevel;
+
+	UPROPERTY(BlueprintReadWrite)
+	int accessLevel;
 
 protected:
 

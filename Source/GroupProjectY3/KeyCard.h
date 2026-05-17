@@ -5,16 +5,18 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "InteractableInterface.h"
-#include "Pen.generated.h"
+#include "KeyCard.generated.h"
+
+class GroupProjectY3Character;
 
 UCLASS()
-class GROUPPROJECTY3_API APen : public AActor, public IInteractableInterface
+class GROUPPROJECTY3_API AKeyCard : public AActor, public IInteractableInterface
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	APen();
+	AKeyCard();
 
 protected:
 	// Called when the game starts or when spawned
@@ -26,4 +28,6 @@ public:
 	virtual void Interact_Implementation(AActor* InteractingActor) override;
 	virtual void InteractionDialogue_Implementation(AActor* InteractingActor) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "KeyCard")
+	int KeyLevelGranted;
 };
