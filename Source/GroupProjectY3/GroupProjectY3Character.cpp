@@ -67,7 +67,8 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	isInPresent = true;
 	isInPast = false;
 
-	keyLevel = 0;
+	keyLevel = 1;
+	accessLevel = 0;
 }
 
 void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -298,21 +299,7 @@ void AGroupProjectY3Character::DoInteract()
 		if (Actor->Implements<UInteractableInterface>())
 		{
 			IInteractableInterface::Execute_Interact(Actor, this);
-		}
-
-		if (Actor->ActorHasTag("Destroy"))
-		{
-			Actor->Destroy();
-		}
-
-		if (Actor->ActorHasTag("LABDOOR_PRESENT") && keyLevel == 1)
-		{
-			//open door i guess
-		}
-
-		if (Actor->ActorHasTag("LABDOOR_PAST"))
-		{
-			keyLevel = 1;
+			//IInteractableInterface::Execute_InteractionDialogue(Actor, this);
 		}
 	}
 }
