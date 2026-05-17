@@ -299,7 +299,7 @@ void AGroupProjectY3Character::DoInteract()
 		if (Actor->Implements<UInteractableInterface>())
 		{
 			IInteractableInterface::Execute_Interact(Actor, this);
-			IInteractableInterface::Execute_InteractionDialogue(Actor, this);
+			//IInteractableInterface::Execute_InteractionDialogue(Actor, this);
 		}
 	}
 }
