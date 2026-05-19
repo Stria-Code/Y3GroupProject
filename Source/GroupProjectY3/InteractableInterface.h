@@ -30,6 +30,6 @@ public:
 	void LookTargetEvent(bool isLooking);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void InteractionDialogue(AActor* InteractingActor);
+	void InteractionDialogueEvent(AActor* InteractingActor);
 
 };

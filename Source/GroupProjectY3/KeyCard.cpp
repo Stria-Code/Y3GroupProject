@@ -39,7 +39,7 @@ void AKeyCard::Interact_Implementation(AActor* InteractingActor)
 	Destroy();
 }
 
-void AKeyCard::InteractionDialogue_Implementation(AActor* InteractingActor)
+void AKeyCard::InteractionDialogueEvent_Implementation(AActor* InteractingActor)
 {
 }
 

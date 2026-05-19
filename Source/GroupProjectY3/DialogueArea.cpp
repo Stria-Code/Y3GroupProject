@@ -1,10 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Pen.h"
+#include "DialogueArea.h"
 
 // Sets default values
-APen::APen()
+ADialogueArea::ADialogueArea()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -12,26 +12,20 @@ APen::APen()
 }
 
 // Called when the game starts or when spawned
-void APen::BeginPlay()
+void ADialogueArea::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void APen::Tick(float DeltaTime)
+void ADialogueArea::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-void APen::Interact_Implementation(AActor* InteractingActor)
+void ADialogueArea::InteractionDialogueEvent_Implementation(AActor* InteractingActor)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Pen interacted with"));
-}
-
-void APen::InteractionDialogueEvent_Implementation(AActor* InteractingActor)
-{
-	UE_LOG(LogTemp, Warning, TEXT("Pen dialogue active"));
 }
 

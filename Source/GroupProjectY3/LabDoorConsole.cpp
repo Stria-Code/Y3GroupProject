@@ -38,7 +38,8 @@ void ALabDoorConsole::Interact_Implementation(AActor* InteractingActor)
 	}
 }
 
-void ALabDoorConsole::InteractionDialogue_Implementation(AActor* InteractingActor)
+void ALabDoorConsole::InteractionDialogueEvent_Implementation(AActor* InteractingActor)
 {
 }
+
 
