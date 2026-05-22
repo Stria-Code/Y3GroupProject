@@ -3,6 +3,9 @@
 
 #include "KeyCard.h"
 #include "GroupProjectY3Character.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundBase.h"
+
 
 // Sets default values
 AKeyCard::AKeyCard()
@@ -41,5 +44,13 @@ void AKeyCard::Interact_Implementation(AActor* InteractingActor)
 
 void AKeyCard::InteractionDialogue_Implementation(AActor* InteractingActor)
 {
+}
+
+void AKeyCard::PlaySound_Implementation(USoundBase* sound)
+{
+	if (sound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, sound, GetActorLocation());
+	}
 }
 

@@ -29,8 +29,15 @@ public:
 
 	virtual void Interact_Implementation(AActor* InteractingActor) override;
 	virtual void InteractionDialogue_Implementation(AActor* InteractingActor) override;
+	virtual void PlaySound_Implementation(USoundBase* sound) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "KeyCard")
 	int AccessLevelGranted;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	USoundBase* AllowedSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	USoundBase* DisallowedSound;
 
 };

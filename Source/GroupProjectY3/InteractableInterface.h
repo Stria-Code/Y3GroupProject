@@ -32,4 +32,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void InteractionDialogue(AActor* InteractingActor);
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void PlaySound(USoundBase* sound);
+
 };

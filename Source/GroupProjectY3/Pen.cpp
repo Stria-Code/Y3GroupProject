@@ -35,3 +35,7 @@ void APen::InteractionDialogue_Implementation(AActor* InteractingActor)
 	UE_LOG(LogTemp, Warning, TEXT("Pen dialogue active"));
 }
 
+void APen::PlaySound_Implementation(USoundBase* sound)
+{
+}
+

@@ -13,6 +13,10 @@
 #include "WatchController.h"
 #include "TimerComponent.h"
 #include "InteractableInterface.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundBase.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
 
 AGroupProjectY3Character::AGroupProjectY3Character()
 {
@@ -174,6 +178,11 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 				isInPresent = true;
 				isInPast = false;
 
+				if (ChronovertParticleEffect)
+				{
+					UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ChronovertParticleEffect, GetActorLocation());
+				}
+
 			}
 		}
 	}
@@ -278,6 +287,11 @@ void AGroupProjectY3Character::ChangeTimeline()
 		CurrentLocation.Z += 3050.f;
 		SetActorLocation(CurrentLocation);
 
+		if (ChronovertParticleEffect)
+		{
+			UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ChronovertParticleEffect, GetActorLocation());
+		}
+
 		WatchController->Timer->StartTimer();
 
 		isInPresent = false;
@@ -311,6 +325,11 @@ void AGroupProjectY3Character::OpenChronovert()
 	if (ChronovertSceneCaptureComponent)
 	{
 		ChronovertSceneCaptureComponent->bCaptureEveryFrame = true;
+
+		if (ChronovertSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, ChronovertSound, GetActorLocation());
+		}
 	}
 }
 
