@@ -2,13 +2,14 @@
 
 
 #include "Pen.h"
+#include "WatchController.h"
+#include "TimerComponent.h"
 
 // Sets default values
 APen::APen()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -37,5 +38,15 @@ void APen::InteractionDialogue_Implementation(AActor* InteractingActor)
 
 void APen::PlaySound_Implementation(USoundBase* sound)
 {
+}
+
+void APen::InteractPauseChronovertTimer_Implementation()
+{
+	WatchController->Timer->isTimerPaused = true;
+}
+
+void APen::InteractResumeChronovertTimer_Implementation()
+{
+	WatchController->Timer->isTimerPaused = false;
 }
 

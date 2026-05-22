@@ -175,6 +175,11 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 				UE_LOG(LogTemp, Warning, TEXT("Getting Teleported Back"));
 				SetActorLocation(CurrentLocation);
 
+				if (ChronovertSound)
+				{
+					UGameplayStatics::PlaySoundAtLocation(this, ChronovertSound, GetActorLocation());
+				}
+
 				isInPresent = true;
 				isInPast = false;
 
@@ -234,6 +239,11 @@ void AGroupProjectY3Character::MoveInput(const FInputActionValue& Value)
 	// pass the axis values to the move input
 	DoMove(MovementVector.X, MovementVector.Y);
 
+	if (WalkingSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, WalkingSound, GetActorLocation());
+	}
+
 
 }
 
@@ -287,6 +297,11 @@ void AGroupProjectY3Character::ChangeTimeline()
 		CurrentLocation.Z += 3050.f;
 		SetActorLocation(CurrentLocation);
 
+		if (ChronovertSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, ChronovertSound, GetActorLocation());
+		}
+
 		if (ChronovertParticleEffect)
 		{
 			UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ChronovertParticleEffect, GetActorLocation());
@@ -325,11 +340,6 @@ void AGroupProjectY3Character::OpenChronovert()
 	if (ChronovertSceneCaptureComponent)
 	{
 		ChronovertSceneCaptureComponent->bCaptureEveryFrame = true;
-
-		if (ChronovertSound)
-		{
-			UGameplayStatics::PlaySoundAtLocation(this, ChronovertSound, GetActorLocation());
-		}
 	}
 }
 

@@ -7,6 +7,8 @@
 #include "InteractableInterface.h"
 #include "Pen.generated.h"
 
+class AWatchController;
+
 UCLASS()
 class GROUPPROJECTY3_API APen : public AActor, public IInteractableInterface
 {
@@ -15,6 +17,9 @@ class GROUPPROJECTY3_API APen : public AActor, public IInteractableInterface
 public:	
 	// Sets default values for this actor's properties
 	APen();
+
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Timer")
+	AWatchController* WatchController;
 
 protected:
 	// Called when the game starts or when spawned
@@ -26,5 +31,9 @@ public:
 	virtual void Interact_Implementation(AActor* InteractingActor) override;
 	virtual void InteractionDialogue_Implementation(AActor* InteractingActor) override;
 	virtual void PlaySound_Implementation(USoundBase* sound) override;
+	virtual void InteractPauseChronovertTimer_Implementation() override;
+	virtual void InteractResumeChronovertTimer_Implementation() override;
+
+	bool doesStopTimer = true;
 
 };

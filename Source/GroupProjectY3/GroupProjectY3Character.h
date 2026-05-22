@@ -100,6 +100,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
 	USoundBase* ChronovertSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	USoundBase* WalkingSound;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ParticleEffect")
 	UNiagaraSystem* ChronovertParticleEffect;
 
