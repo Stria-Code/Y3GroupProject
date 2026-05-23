@@ -2,6 +2,8 @@
 
 
 #include "LabDoorConsole.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundBase.h"
 #include "GroupProjectY3Character.h"
 
 // Sets default values
@@ -34,11 +36,31 @@ void ALabDoorConsole::Interact_Implementation(AActor* InteractingActor)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Access Level is 1 now"));
 			Player->accessLevel = AccessLevelGranted;
+
+			if (AllowedSound)
+			{
+				UGameplayStatics::PlaySoundAtLocation(this, AllowedSound, GetActorLocation());
+			}
+		}
+		else
+		{
+			if (DisallowedSound)
+			{
+				UGameplayStatics::PlaySoundAtLocation(this, DisallowedSound, GetActorLocation());
+			}
 		}
 	}
 }
 
 void ALabDoorConsole::InteractionDialogue_Implementation(AActor* InteractingActor)
 {
+}
+
+void ALabDoorConsole::PlaySound_Implementation(USoundBase* sound)
+{
+	if (sound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, sound, GetActorLocation());
+	}
 }
 

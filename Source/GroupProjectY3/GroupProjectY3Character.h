@@ -10,6 +10,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Engine/TextureRenderTarget2D.h"
 
+
 #include "GroupProjectY3Character.generated.h"
 
 class UInputComponent;
@@ -18,6 +19,7 @@ class UCameraComponent;
 class UInputAction;
 struct FInputActionValue;
 class AWatchController;
+class UNiagaraSystem;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -95,13 +97,20 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UDoorScript* Door;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	USoundBase* ChronovertSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	USoundBase* WalkingSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ParticleEffect")
+	UNiagaraSystem* ChronovertParticleEffect;
+
 	virtual void BeginPlay() override;
 
 	FVector PresentPosition;
 	FVector PastPosition;
 
-	bool isInPresent;
-	bool isInPast;
 	bool hasKey;
 
 	bool isHit;
@@ -123,6 +132,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	int accessLevel;
+
+	bool isInPresent;
+	bool isInPast;
 
 protected:
 

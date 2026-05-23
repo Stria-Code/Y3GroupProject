@@ -30,3 +30,7 @@ void ALamp::Interact_Implementation(AActor* InteractingActor)
 	UE_LOG(LogTemp, Warning, TEXT("Lamp interacted with"));
 }
 
+void ALamp::PlaySound_Implementation(USoundBase* sound)
+{
+}
+

@@ -22,6 +22,7 @@ protected:
 
 	float TimeRemaining;
 
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -37,4 +38,6 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Timer")
 	float GetTimeRemaining() const;
+
+	bool isTimerPaused = false;
 };

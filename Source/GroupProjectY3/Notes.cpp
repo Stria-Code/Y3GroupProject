@@ -30,3 +30,7 @@ void ANotes::Interact_Implementation(AActor* InteractingActor)
 	UE_LOG(LogTemp, Warning, TEXT("Note interacted with"));
 }
 
+void ANotes::PlaySound_Implementation(USoundBase* sound)
+{
+}
+

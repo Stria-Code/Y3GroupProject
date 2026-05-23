@@ -29,7 +29,7 @@ void UTimerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 
 	UE_LOG(LogTemp, Warning, TEXT("Time Remaining: %f"), TimeRemaining);
 
-	if (isTimerFinished)
+	if (isTimerFinished || isTimerPaused)
 	{
 		return;
 	}

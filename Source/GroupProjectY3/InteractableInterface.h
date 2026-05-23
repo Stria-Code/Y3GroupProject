@@ -27,9 +27,18 @@ public:
 	void Interact(AActor* InteractingActor);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void InteractPauseChronovertTimer();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void InteractResumeChronovertTimer();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void LookTargetEvent(bool isLooking);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void InteractionDialogue(AActor* InteractingActor);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void PlaySound(USoundBase* sound);
 
 };

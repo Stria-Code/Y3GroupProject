@@ -3,6 +3,9 @@
 
 #include "KeyCard.h"
 #include "GroupProjectY3Character.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundBase.h"
+
 
 // Sets default values
 AKeyCard::AKeyCard()
@@ -30,6 +33,8 @@ void AKeyCard::Interact_Implementation(AActor* InteractingActor)
 {
 	if (AGroupProjectY3Character* Player = Cast<AGroupProjectY3Character>(InteractingActor))
 	{
+		UGameplayStatics::PlaySoundAtLocation(this, KeyCardSound, GetActorLocation());
+
 		if (Player->keyLevel < KeyLevelGranted)
 		{
 			Player->keyLevel = KeyLevelGranted;
@@ -41,5 +46,13 @@ void AKeyCard::Interact_Implementation(AActor* InteractingActor)
 
 void AKeyCard::InteractionDialogue_Implementation(AActor* InteractingActor)
 {
+}
+
+void AKeyCard::PlaySound_Implementation(USoundBase* sound)
+{
+	if (sound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, sound, GetActorLocation());
+	}
 }
 
