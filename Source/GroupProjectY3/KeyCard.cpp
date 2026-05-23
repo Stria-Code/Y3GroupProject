@@ -33,6 +33,8 @@ void AKeyCard::Interact_Implementation(AActor* InteractingActor)
 {
 	if (AGroupProjectY3Character* Player = Cast<AGroupProjectY3Character>(InteractingActor))
 	{
+		UGameplayStatics::PlaySoundAtLocation(this, KeyCardSound, GetActorLocation());
+
 		if (Player->keyLevel < KeyLevelGranted)
 		{
 			Player->keyLevel = KeyLevelGranted;

@@ -111,8 +111,6 @@ protected:
 	FVector PresentPosition;
 	FVector PastPosition;
 
-	bool isInPresent;
-	bool isInPast;
 	bool hasKey;
 
 	bool isHit;
@@ -134,6 +132,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	int accessLevel;
+
+	bool isInPresent;
+	bool isInPast;
 
 protected:
 
