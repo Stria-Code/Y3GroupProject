@@ -187,7 +187,6 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 				{
 					UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ChronovertParticleEffect, GetActorLocation());
 				}
-
 			}
 		}
 	}
@@ -238,13 +237,6 @@ void AGroupProjectY3Character::MoveInput(const FInputActionValue& Value)
 
 	// pass the axis values to the move input
 	DoMove(MovementVector.X, MovementVector.Y);
-
-	if (WalkingSound)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, WalkingSound, GetActorLocation());
-	}
-
-
 }
 
 void AGroupProjectY3Character::LookInput(const FInputActionValue& Value)
@@ -274,6 +266,11 @@ void AGroupProjectY3Character::DoMove(float Right, float Forward)
 		// pass the move inputs
 		AddMovementInput(GetActorRightVector(), Right);
 		AddMovementInput(GetActorForwardVector(), Forward);
+
+		if (WalkingSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, WalkingSound, GetActorLocation());
+		}
 	}
 }
 

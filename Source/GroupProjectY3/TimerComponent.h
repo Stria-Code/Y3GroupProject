@@ -36,8 +36,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Timer")
 	void StartTimer();
 
-	UFUNCTION(BlueprintPure, Category = "Timer")
+	UFUNCTION(BlueprintCallable, Category = "Timer")
 	float GetTimeRemaining() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Timer")
+	float GetTimeRemainingPercentage() const;
 
 	bool isTimerPaused = false;
 };

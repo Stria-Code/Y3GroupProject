@@ -56,3 +56,8 @@ float UTimerComponent::GetTimeRemaining() const
 	return TimeRemaining;
 }
 
+float UTimerComponent::GetTimeRemainingPercentage() const
+{
+	return TimeRemaining / TimeDuration;
+}
+
