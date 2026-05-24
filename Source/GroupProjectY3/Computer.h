@@ -7,6 +7,8 @@
 #include "InteractableInterface.h"
 #include "Computer.generated.h"
 
+class AWatchController;
+
 UCLASS()
 class GROUPPROJECTY3_API AComputer : public AActor, public IInteractableInterface
 {
@@ -15,6 +17,9 @@ class GROUPPROJECTY3_API AComputer : public AActor, public IInteractableInterfac
 public:
 	// Sets default values for this actor's properties
 	AComputer();
+
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Timer")
+	AWatchController* WatchController;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -27,6 +32,8 @@ public:
 	virtual void PlaySound_Implementation(USoundBase* sound) override;
 	virtual void InteractPauseChronovertTimer_Implementation() override;
 	virtual void InteractResumeChronovertTimer_Implementation() override;
+
+	bool doesStopTimer = true;
 
 	UFUNCTION(BlueprintCallable)
 	void StartDataDownload();

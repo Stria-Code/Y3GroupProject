@@ -2,6 +2,8 @@
 
 
 #include "Computer.h"
+#include "WatchController.h"
+#include "TimerComponent.h"
 
 // Sets default values
 AComputer::AComputer()
@@ -56,10 +58,12 @@ void AComputer::PlaySound_Implementation(USoundBase* sound)
 
 void AComputer::InteractPauseChronovertTimer_Implementation()
 {
+	WatchController->Timer->isTimerPaused = true;
 }
 
 void AComputer::InteractResumeChronovertTimer_Implementation()
 {
+	WatchController->Timer->isTimerPaused = false;
 }
 
 void AComputer::StartDataDownload()
