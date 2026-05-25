@@ -76,3 +76,8 @@ float AComputer::GetDataDownloadPercentage()
 	return DataDownloadStart / DataDownloadTotal;
 }
 
+float AComputer::GetDataDownloadRemaining()
+{
+	return DataDownloadStart;
+}
+

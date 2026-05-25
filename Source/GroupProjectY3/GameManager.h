@@ -34,6 +34,9 @@ protected:
 	UPROPERTY()
 	UAudioComponent* CurrentAudio;
 
+	bool hasPastAudioPlayed;
+	bool hasPresentAudioPlayed;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

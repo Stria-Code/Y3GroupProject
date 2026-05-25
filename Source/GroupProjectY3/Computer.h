@@ -42,6 +42,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	float GetDataDownloadPercentage();
 
+	UFUNCTION(BlueprintCallable)
+	float GetDataDownloadRemaining();
+
 	float DataDownloadTotal;
 	float DataDownloadStart;
 	bool isDataDownloaded;

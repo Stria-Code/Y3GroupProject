@@ -26,23 +26,27 @@ void AGameManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(Player->isInPresent)
+	if (Player->isInPresent && !hasPresentAudioPlayed)
 	{
+		hasPresentAudioPlayed = true;
+		hasPastAudioPlayed = false;
 
 		if (CurrentAudio)
 		{
 			CurrentAudio->Stop();
 		}
 
-	    if (PresentSound)
-	    {
-			CurrentAudio = UGameplayStatics::SpawnSoundAtLocation(this, PresentSound, Player->GetActorLocation());
+		if (PresentSound)
+		{
+			CurrentAudio = UGameplayStatics::SpawnSound2D(this, PresentSound);
 		}
-		
 	}
 	
-	if(Player->isInPast)
+	if(Player->isInPast && !hasPastAudioPlayed)
 	{
+		hasPresentAudioPlayed = false;
+		hasPastAudioPlayed = true;
+
 		if (CurrentAudio)
 		{
 			CurrentAudio->Stop();
@@ -50,9 +54,8 @@ void AGameManager::Tick(float DeltaTime)
 
 		if (PastSound)
 		{
-			CurrentAudio = UGameplayStatics::SpawnSoundAtLocation(this, PastSound, Player->GetActorLocation());
+			CurrentAudio = UGameplayStatics::SpawnSound2D(this, PastSound);
 		}
-		
 	}
 }
 
