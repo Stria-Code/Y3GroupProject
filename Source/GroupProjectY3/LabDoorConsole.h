@@ -28,7 +28,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void Interact_Implementation(AActor* InteractingActor) override;
-	virtual void InteractionDialogue_Implementation(AActor* InteractingActor) override;
 	virtual void PlaySound_Implementation(USoundBase* sound) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "KeyCard")

@@ -54,10 +54,6 @@ void ALabDoorConsole::Interact_Implementation(AActor* InteractingActor)
 	}
 }
 
-void ALabDoorConsole::InteractionDialogue_Implementation(AActor* InteractingActor)
-{
-}
-
 void ALabDoorConsole::PlaySound_Implementation(USoundBase* sound)
 {
 	if (sound)

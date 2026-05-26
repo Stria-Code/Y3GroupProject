@@ -145,7 +145,7 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 		{
 			FVector CapturerLocation = GetActorLocation() + FVector(0.0f, 0.0f, 3050.0f);
 
-			FRotator CapturerRotation = GetActorRotation();
+			FRotator CapturerRotation = FirstPersonCameraComponent->GetComponentRotation();
 
 			ChronovertSceneCapture->SetActorLocation(CapturerLocation);
 			ChronovertSceneCapture->SetActorRotation(CapturerRotation);
@@ -158,7 +158,7 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 		{
 			FVector CapturerLocation = GetActorLocation() - FVector(0.0f, 0.0f, 3050.0f);
 
-			FRotator CapturerRotation = GetActorRotation();
+			FRotator CapturerRotation = FirstPersonCameraComponent->GetComponentRotation();
 
 			ChronovertSceneCapture->SetActorLocation(CapturerLocation);
 			ChronovertSceneCapture->SetActorRotation(CapturerRotation);
@@ -381,8 +381,8 @@ void AGroupProjectY3Character::DoInteract()
 		{
 			isInspecting = true;
 
+			IInteractableInterface::Execute_InteractionDialogue(Actor, this);
 			IInteractableInterface::Execute_Interact(Actor, this);
-			//IInteractableInterface::Execute_InteractionDialogue(Actor, this);
 		}
 	}
 }
