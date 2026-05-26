@@ -154,7 +154,7 @@ public:
 	bool isInPresent;
 	bool isInPast;
 
-	UPROPERTY(EditAnywhere,BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool hasUSBStick;
 
 	UPROPERTY(BlueprintReadOnly)
