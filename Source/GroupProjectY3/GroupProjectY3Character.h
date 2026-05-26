@@ -127,14 +127,28 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
+	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
+
+	UFUNCTION(BlueprintCallable)
+	void SetInspectingState();
+
+	UFUNCTION(BlueprintCallable)
+	bool GetInspectingState();
+
 	UPROPERTY(BlueprintReadWrite)
 	int keyLevel;
 
 	UPROPERTY(BlueprintReadWrite)
 	int accessLevel;
 
+	UPROPERTY(BlueprintReadOnly)
+	bool isInspecting;
+
 	bool isInPresent;
 	bool isInPast;
+	FVector SpawnPosition;
+	
 
 protected:
 
@@ -171,6 +185,7 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	virtual void CloseChronovert();
+
 
 protected:
 

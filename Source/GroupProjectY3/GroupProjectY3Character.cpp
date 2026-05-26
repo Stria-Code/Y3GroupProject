@@ -32,8 +32,6 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	FirstPersonMesh->FirstPersonPrimitiveType = EFirstPersonPrimitiveType::FirstPerson;
 	FirstPersonMesh->SetCollisionProfileName(FName("NoCollision"));
 
-	
-
 	// Create the Camera Component	
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("First Person Camera"));
 	FirstPersonCameraComponent->SetupAttachment(FirstPersonMesh, FName("head"));
@@ -61,6 +59,8 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	GetMesh()->FirstPersonPrimitiveType = EFirstPersonPrimitiveType::WorldSpaceRepresentation;
 
 	GetCapsuleComponent()->SetCapsuleSize(34.0f, 96.0f);
+	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &AGroupProjectY3Character::OnOverlapBegin);
+	GetCapsuleComponent()->SetGenerateOverlapEvents(true);
 
 	// Configure character movement
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
@@ -70,9 +70,11 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 	isChronovertActive = true;
 	isInPresent = true;
 	isInPast = false;
+	isInspecting = false;
 
 	keyLevel = 1;
 	accessLevel = 0;
+	SpawnPosition = FVector(-800.0f, -600.0f, 126.0f);
 }
 
 void AGroupProjectY3Character::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -193,6 +195,49 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 }
 
 
+void AGroupProjectY3Character::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherActor)
+	{
+		if (OtherActor->ActorHasTag("SpawnCheck"))
+		{
+			SpawnPosition = OtherActor->GetActorLocation();
+		
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("SPAWN POINT CHECKED"));
+		}
+
+		if (OtherActor->ActorHasTag("SpawnCheckPast"))
+		{
+			SpawnPosition = OtherActor->GetActorLocation() - FVector(0.0f, 0.0f, 3050.0f);
+
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("SPAWN POINT CHECKED"));
+		}
+
+		if (OtherActor->ActorHasTag("Enemy"))
+		{
+			this->SetActorLocation(SpawnPosition);
+
+			WatchController->Timer->isTimerFinished = true;
+
+			if (ChronovertSound)
+			{
+				UGameplayStatics::PlaySoundAtLocation(this, ChronovertSound, GetActorLocation());
+			}
+
+			isInPresent = true;
+			isInPast = false;
+
+			if (ChronovertParticleEffect)
+			{
+				UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ChronovertParticleEffect, GetActorLocation());
+			}
+
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("TOUCHED AN ENEMY U ARE DEAD"));
+		}
+	}
+}
+
+
 void AGroupProjectY3Character::LookAtTarget()
 {
 	FVector Start;
@@ -249,6 +294,16 @@ void AGroupProjectY3Character::LookInput(const FInputActionValue& Value)
 
 }
 
+void AGroupProjectY3Character::SetInspectingState()
+{
+	isInspecting = false;
+}
+
+bool AGroupProjectY3Character::GetInspectingState()
+{
+	return isInspecting;
+}
+
 void AGroupProjectY3Character::DoAim(float Yaw, float Pitch)
 {
 	if (GetController())
@@ -288,7 +343,7 @@ void AGroupProjectY3Character::DoJumpEnd()
 
 void AGroupProjectY3Character::ChangeTimeline()
 {
-	if (isInPresent)
+	if (isInPresent && !isInspecting)
 	{
 		FVector CurrentLocation = GetActorLocation();
 		CurrentLocation.Z += 3050.f;
@@ -324,6 +379,8 @@ void AGroupProjectY3Character::DoInteract()
 
 		if (Actor->Implements<UInteractableInterface>())
 		{
+			isInspecting = true;
+
 			IInteractableInterface::Execute_Interact(Actor, this);
 			//IInteractableInterface::Execute_InteractionDialogue(Actor, this);
 		}
@@ -343,11 +400,12 @@ void AGroupProjectY3Character::OpenChronovert()
 void AGroupProjectY3Character::CloseChronovert()
 {
 	isChronovertActive = false;
-
+	 
 	if (ChronovertSceneCaptureComponent)
 	{
 		ChronovertSceneCaptureComponent->bCaptureEveryFrame = false;
 	}
 }
+
 
 

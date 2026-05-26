@@ -49,6 +49,8 @@ void ALabDoorConsole::Interact_Implementation(AActor* InteractingActor)
 				UGameplayStatics::PlaySoundAtLocation(this, DisallowedSound, GetActorLocation());
 			}
 		}
+
+		Player->SetInspectingState();
 	}
 }
 

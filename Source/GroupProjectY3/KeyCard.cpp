@@ -39,6 +39,8 @@ void AKeyCard::Interact_Implementation(AActor* InteractingActor)
 		{
 			Player->keyLevel = KeyLevelGranted;
 		}
+
+		Player->SetInspectingState();
 	}
 
 	Destroy();
