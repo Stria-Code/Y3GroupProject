@@ -74,6 +74,7 @@ AGroupProjectY3Character::AGroupProjectY3Character()
 
 	keyLevel = 1;
 	accessLevel = 0;
+	hasUSBStick = false;
 	SpawnPosition = FVector(-800.0f, -600.0f, 126.0f);
 }
 
@@ -168,7 +169,7 @@ void AGroupProjectY3Character::Tick(float DeltaTime)
 		{
 			//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Time: " + WatchController->Timer->GetTimeRemaining()));
 
-			if (WatchController->Timer->isTimerFinished)
+			if (WatchController->Timer->isTimerFinished && !hasDownloadedData)
 			{
 
 				FVector CurrentLocation = GetActorLocation();
@@ -211,6 +212,12 @@ void AGroupProjectY3Character::OnOverlapBegin(UPrimitiveComponent* OverlappedCom
 			SpawnPosition = OtherActor->GetActorLocation() - FVector(0.0f, 0.0f, 3050.0f);
 
 			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("SPAWN POINT CHECKED"));
+		}
+
+		if (OtherActor->ActorHasTag("ChaseTrigger") && hasDownloadedData)
+		{
+
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue, TEXT("Chase Scene Started"));
 		}
 
 		if (OtherActor->ActorHasTag("Enemy"))
@@ -302,6 +309,16 @@ void AGroupProjectY3Character::SetInspectingState()
 bool AGroupProjectY3Character::GetInspectingState()
 {
 	return isInspecting;
+}
+
+void AGroupProjectY3Character::SetDataState()
+{
+	hasDownloadedData = true;
+}
+
+bool AGroupProjectY3Character::GetDataState()
+{
+	return hasDownloadedData;
 }
 
 void AGroupProjectY3Character::DoAim(float Yaw, float Pitch)

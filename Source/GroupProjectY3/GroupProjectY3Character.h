@@ -136,6 +136,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool GetInspectingState();
 
+	UFUNCTION(BlueprintCallable)
+	void SetDataState();
+
+	UFUNCTION(BlueprintCallable)
+	bool GetDataState();
+
 	UPROPERTY(BlueprintReadWrite)
 	int keyLevel;
 
@@ -147,6 +153,13 @@ public:
 
 	bool isInPresent;
 	bool isInPast;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool hasUSBStick;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool hasDownloadedData;
+
 	FVector SpawnPosition;
 	
 
