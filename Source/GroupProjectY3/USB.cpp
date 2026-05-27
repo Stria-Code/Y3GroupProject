@@ -38,9 +38,12 @@ void AUSB::Interact_Implementation(AActor* InteractingActor)
 		}
 
 		Player->hasUSBStick = true;
+		Player->SetInspectingState();
+		Destroy();
 	}
 
-	Destroy();
+	
+	
 }
 
 void AUSB::PlaySound_Implementation(USoundBase* sound)

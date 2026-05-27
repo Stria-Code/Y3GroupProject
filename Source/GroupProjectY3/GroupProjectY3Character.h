@@ -152,6 +152,7 @@ public:
 	bool isInspecting;
 
 	bool isInPresent;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool isInPast;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
