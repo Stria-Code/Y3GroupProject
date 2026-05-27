@@ -142,10 +142,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool GetDataState();
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	int keyLevel;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	int accessLevel;
 
 	UPROPERTY(BlueprintReadOnly)
